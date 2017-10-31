@@ -1,0 +1,10 @@
+ function [bases,X_tr,Y_tr, X_te, Y_te]  = get_bases(V, V2, K,T1_norm, T2_norm,T3_norm, T4_norm)
+A = V(:,1:K);
+B = V2(:,1:K);
+bases = [A, B];
+X_tr = bases * bases' * [T1_norm, T2_norm];
+Y_tr = [(-1)*ones(2500,1); ones(2500,1)];
+X_te = bases * bases' * [T3_norm, T4_norm];
+Y_te = [(-1)*ones(200,1); ones(200,1)];
+X_te = X_te';
+X_tr = X_tr';
