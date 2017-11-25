@@ -40,8 +40,8 @@ save('results/Bs.mat','Bs');
 
 % WRITE TIME DOMAIN SPEECH AND MUSIC USING audiowrite with 16000 sampling
 % frequency
-audiowrite('results/music.wav',synMusic,16000);
-audiowrite('results/speech.wav',synSpeech,16000);
+audiowrite('results/music_rec.wav',synMusic,16000);
+audiowrite('results/speech_rec.wav',synSpeech,16000);
 
 
 

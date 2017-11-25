@@ -20,8 +20,7 @@ T = [10,50,100,150,200];
 for a = 1:5
     [bases,X_tr,Y_tr, X_te, Y_te] = get_bases(V,V2,K(a),T1_norm, T2_norm,T3_norm, T4_norm);
     for b = 1:5
-        Y_pred_test=adaboost(X_tr, Y_tr, T(b), X_te);
-        Y_pred_train=adaboost(X_tr, Y_tr, T(b), X_tr);
+        [Y_pred_train,Y_pred_test]=adaboost(X_tr, Y_tr, T(b), X_te);
         for c = 1:400
             if Y_pred_test(c) ~= Y_te(c)
                 err_te(b) = err_te(b) + 1;
@@ -36,7 +35,6 @@ for a = 1:5
         end
         err_tr(b) = err_tr(b) / 5000.0;
         accuracy_tr(b) = 1 - err_tr(b);
-
     end
     figure
     plot(T, accuracy_tr,'r',T,accuracy_te,'g');
